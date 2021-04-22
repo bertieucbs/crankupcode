@@ -24,18 +24,6 @@ Cloudwatch Logs sends to Firehose records that look like this:
   ]
 }
 The data is additionally compressed with GZIP.
-The code below will:
-1) Gunzip the data
-2) Parse the json
-3) Set the result to ProcessingFailed for any record whose messageType is not DATA_MESSAGE, thus redirecting them to the
-   processing error output. Such records do not contain any log events. You can modify the code to set the result to
-   Dropped instead to get rid of these records completely.
-4) For records whose messageType is DATA_MESSAGE, extract the individual log events from the logEvents field, and pass
-   each one to the transformLogEvent method. You can modify the transformLogEvent method to perform custom
-   transformations on the log events.
-5) Concatenate the result from (4) together and set the result as the data of the record returned to Firehose. Note that
-   this step will not add any delimiters. Delimiters should be appended by the logic within the transformLogEvent
-   method.
 */
 
 'use strict';
@@ -51,7 +39,7 @@ const zlib = require('zlib');
  *   "message": "log message 1"
  * }
  *
- * The default implementation below just extracts the message and appends a newline to it.
+ * The default implementation below just extracts and replays the same data.
  *
  * The result must be returned in a Promise.
  */
