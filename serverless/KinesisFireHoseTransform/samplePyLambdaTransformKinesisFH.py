@@ -1,3 +1,8 @@
+
+"""
+Run time for the python script is  *Python 3.8*
+"""
+
 """
 For processing data sent to Firehose by Cloudwatch Logs subscription filters.
 Cloudwatch Logs sends to Firehose records that look like this:
