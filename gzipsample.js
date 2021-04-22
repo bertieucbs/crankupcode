@@ -8,7 +8,6 @@ let rawdata = fs.readFileSync('logs_sample.json');
 let logsObj = JSON.parse(rawdata);
 console.log(logsObj);
 
-
 var myJSON = JSON.stringify(logsObj);
 console.log(myJSON)
 
