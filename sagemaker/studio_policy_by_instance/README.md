@@ -3,7 +3,7 @@
 This is a sample less restrictive policy (not for prod) for sagemaker studio execution role which restrict instance type selection for create app and training job. For production, please make it less open per your requirements.
 
 
-* When a user opens a SageMaker notebook (classic or Studio), they assume the SageMaker Execution Role associated with the classic notebook instance or their SMStudio user profile - so actions like **CreateTrainingJob** usually taken from a notebook need to be controlled on that role.Not on the person's IAM/console user
+* When a user opens a SageMaker notebook (classic or Studio), they assume the SageMaker Execution Role associated with the classic notebook instance or their SageMaker Studio user profile - so actions like **CreateTrainingJob** usually taken from a notebook need to be controlled on that role. Not on the person's IAM/console user
 
 * For SageMaker Studio notebooks in particular, it's the **sagemaker:CreateApp** permission you need to restrict on the execution role - not **sagemaker:CreateNotebookInstance** (which refers only to the classic notebook instances - not Studio)
 
