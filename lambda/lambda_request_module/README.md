@@ -1,4 +1,4 @@
-# Importing the requests module directly into your code
+# Importing the python ***requests*** module directly into your code
 
 ***Step 1:*** On your selected development environment or you can use AWS Cloud 9
  
